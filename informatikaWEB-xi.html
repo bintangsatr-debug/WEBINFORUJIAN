@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>INFORMATIKA.XI – Belajar ASAS 2026/2027</title>
+<style>
+:root{--bg:#0a0d12;--card:#121821;--card2:#0f141c;--line:#1f2a37;--tx:#e6edf3;--mut:#8b98a9;--ac:#2dd4bf;--gr:#22c55e;--bad:#f87171;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.w{max-width:860px;margin:0 auto;padding:0 16px 48px}
+header{display:flex;justify-content:space-between;align-items:center;padding:18px 0 4px;gap:8px}
+.logo{font-weight:800;font-size:1.2rem}.logo span{color:var(--ac)}
+.badge{background:#0f2a1c;color:var(--gr);font-size:.75rem;font-weight:700;padding:5px 12px;border-radius:99px}
+.sub{color:var(--ac);font-weight:600;font-size:.9rem}
+h1{font-size:2rem;margin:20px 0 4px}p.l{color:var(--mut);margin:0 0 16px}
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0 24px}
+.tab{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;color:var(--tx);text-align:left;font:inherit;cursor:pointer}
+.tab b{display:block;font-size:1.1rem}.tab small{color:var(--mut)}
+.tab.on{border-color:var(--ac);background:#0f1f22}
+h2{color:var(--ac);font-size:1rem;letter-spacing:.04em;text-transform:uppercase;margin:28px 0 10px}
+h3{margin:18px 0 6px;font-size:.95rem;color:var(--gr)}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;margin:8px 0}
+summary{cursor:pointer;padding:12px 14px;font-weight:600;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary .n{color:var(--ac);margin-right:8px}summary .lv{float:right;color:var(--mut);font-size:.8rem}
+.b{padding:0 14px 14px;border-top:1px solid var(--line)}
+.ind{color:var(--mut);font-size:.9rem;margin:10px 0}
+pre{background:var(--card2);border:1px solid var(--line);border-radius:10px;padding:10px;overflow-x:auto;font:14px/1.5 ui-monospace,Menlo,Consolas,monospace;color:#7dd3fc;margin:8px 0}
+.q{white-space:pre-wrap}
+.o{display:flex;gap:8px;padding:7px 10px;border:1px solid var(--line);border-radius:8px;margin:5px 0;background:var(--card2);width:100%;text-align:left;color:var(--tx);font:inherit}
+.o i{font-style:normal;color:var(--ac);font-weight:700}
+.o.ok{border-color:var(--gr);background:#0f2a1c}.o.no{border-color:var(--bad);background:#2a1315}.o.sel{border-color:var(--ac);background:#0f1f22}
+button.o{cursor:pointer}
+.ans{color:var(--gr);font-weight:700;margin-top:8px}
+.bar{height:6px;background:var(--line);border-radius:9px;overflow:hidden;margin:8px 0}.bar div{height:100%;background:var(--ac);width:0}
+.row{display:flex;justify-content:space-between;gap:8px;margin-top:14px;flex-wrap:wrap}
+.btn{background:var(--ac);color:#04201c;border:0;border-radius:10px;padding:10px 16px;font:inherit;font-weight:700;cursor:pointer}
+.btn.g{background:var(--card);color:var(--tx);border:1px solid var(--line)}.btn:disabled{opacity:.4;cursor:default}
+.sc{font-size:2.6rem;font-weight:800;color:var(--ac)}.st{display:flex;gap:16px;color:var(--mut)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:8px 0}
+.hide{display:none}
+</style></head><body><div class="w">
+<header><div class="logo">&gt;_ INFORMATIKA<span>.XI</span></div><div class="badge">LEARNING MODE</div></header>
+<div class="sub">ASAS 2026/2027</div>
+<h1>Belajar Informatika.</h1><p class="l">Pahami konsep. Pelajari contoh. Uji kemampuanmu.</p>
+<div class="tabs"><button class="tab on" id="t1"><b>Materi</b><small>40 PG + 5 uraian</small></button><button class="tab" id="t2"><b>Latihan</b><small>40 soal simulasi</small></button></div>
+<div id="v1"></div><div id="v2" class="hide"></div>
+</div>
+<script>
+const E=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+const L="ABCDE";
+// Kisi-kisi: [materi, indikator, level]
+const K=[
+["Pertanian Cerdas (Smart Agriculture)","Disajikan ilustrasi penggunaan sensor kelembapan tanah berbasis IoT pada sistem irigasi, peserta didik dapat mengidentifikasi istilah penerapan teknologi tersebut.","C1"],
+["Pertanian Cerdas (Smart Agriculture)","Peserta didik dapat menganalisis dampak ekonomi positif dari penggunaan platform agritech yang menghubungkan petani langsung ke konsumen akhir.","C4"],
+["Pertanian Cerdas (Smart Agriculture)","Peserta didik dapat mengidentifikasi dampak sosial negatif potensial dari otomatisasi alat pertanian modern (drone dan mesin pemanen) di pedesaan.","C2"],
+["Pertanian Cerdas (Smart Agriculture)","Peserta didik dapat menentukan kendala utama pemerataan penerapan Smart Agriculture di daerah pelosok atau 3T di Indonesia.","C2"],
+["Pertanian Cerdas (Smart Agriculture)","Peserta didik dapat menganalisis manfaat penerapan analisis Big Data dan Machine Learning untuk memprediksi cuaca dan hama bagi petani.","C3"],
+["Teknologi Kesehatan","Peserta didik dapat mengidentifikasi manfaat utama sistem Rekam Medis Elektronik (RME) yang terintegrasi antar fasilitas kesehatan.","C2"],
+["Teknologi Kesehatan","Peserta didik dapat menentukan solusi sosial yang diberikan oleh platform Telemedisin bagi masyarakat di daerah pelosok.","C2"],
+["Keamanan & Etika Data Kesehatan","Disajikan kasus kebocoran data rekam medis pasien (data breach), peserta didik dapat mengidentifikasi aspek keamanan informasi yang terancam.","C2"],
+["AI dalam Kesehatan","Peserta didik dapat menentukan tujuan penggunaan Kecerdasan Buatan (AI) dalam menganalisis citra medis (X-Ray, CT-Scan, MRI).","C2"],
+["AI dalam Kesehatan","Peserta didik dapat menganalisis penyebab terjadinya fenomena Bias Algoritma pada sistem AI diagnostik kesehatan.","C4"],
+["Etika & Hukum AI","Peserta didik dapat mengidentifikasi tantangan etis dan hukum utama dalam penggunaan asisten AI untuk rekomendasi tindakan medis darurat.","C2"],
+["Teknologi Kesehatan","Peserta didik dapat mengidentifikasi dampak psikologis dan sosial negatif akibat ketergantungan berlebihan pada aplikasi telemedisin.","C2"],
+["Teknologi Kesehatan","Peserta didik dapat menentukan arah transformasi paradigma kesehatan yang didukung oleh perangkat wearable (seperti smartwatch).","C2"],
+["Cabang Ilmu Informatika","Disajikan studi kasus aplikasi pemindai penyakit daun padi menggunakan kamera smartphone, peserta didik dapat mengidentifikasi cabang ilmu informatika yang berperan.","C3"],
+["Tujuan Pembangunan Berkelanjutan","Peserta didik dapat mengaitkan integrasi teknologi IoT pertanian dan telemedisin di pedesaan dengan pilar Tujuan Pembangunan Berkelanjutan (SDGs).","C3"],
+["Struktur Dasar Program","Peserta didik dapat menentukan header file yang wajib disertakan dalam C++ untuk menggunakan fungsi input/output standar (cin dan cout).","C1"],
+["Struktur Dasar Program","Peserta didik dapat mengidentifikasi fungsi utama yang menjadi titik awal eksekusi program dalam C++.","C1"],
+["Sintaks Dasar","Peserta didik dapat menentukan karakter yang digunakan untuk mengakhiri setiap baris instruksi (statement) dalam C++.","C1"],
+["Sintaks Dasar","Peserta didik dapat mengidentifikasi simbol untuk membuat komentar satu baris (single-line comment) pada C++.","C1"],
+["Struktur Dasar Program","Peserta didik dapat menjelaskan fungsi perintah using namespace std; dalam kode program C++.","C2"],
+["Tipe Data","Disajikan contoh data bilangan bulat (jumlah siswa), peserta didik dapat menentukan tipe data C++ yang paling tepat.","C3"],
+["Tipe Data","Disajikan contoh data bilangan desimal (nilai rata-rata), peserta didik dapat menentukan tipe data C++ yang sesuai.","C3"],
+["Tipe Data","Peserta didik dapat mengidentifikasi tipe data C++ yang digunakan untuk menyimpan satu karakter tunggal yang diapit tanda petik tunggal.","C1"],
+["Variabel","Disajikan beberapa pilihan deklarasi variabel, peserta didik dapat menentukan penamaan variabel yang valid sesuai aturan sintaks C++.","C3"],
+["Tipe Data","Peserta didik dapat menentukan dua kemungkinan nilai kebenaran yang disimpan oleh tipe data bool dalam C++.","C1"],
+["Input / Output","Peserta didik dapat mengidentifikasi operator penyisipan (insertion operator) yang digunakan bersama perintah cout.","C1"],
+["Input / Output","Peserta didik dapat mengidentifikasi operator ekstraksi (extraction operator) yang digunakan bersama perintah cin.","C1"],
+["Input / Output","Peserta didik dapat menentukan perintah atau karakter escape yang berfungsi membuat baris baru (newline) pada output layar.","C1"],
+["Input / Output","Disajikan potongan kode cin berantai dan urutan input pengguna, peserta didik dapat menentukan nilai yang tersimpan pada masing-masing variabel.","C3"],
+["Input / Output","Disajikan potongan kode cout yang menggabungkan teks string dan variabel, peserta didik dapat menentukan tampilan output yang muncul di layar.","C3"],
+["Operator Aritmatika","Peserta didik dapat mengidentifikasi operator aritmatika C++ untuk menghitung sisa hasil bagi (modulo).","C1"],
+["Operator Aritmatika","Disajikan potongan kode pembagian dua bilangan bertipe data int, peserta didik dapat menentukan hasil output bilangan bulat yang dicetak ke layar.","C3"],
+["Operator Aritmatika & Tipe Data","Peserta didik dapat menentukan penulisan kode dan tipe data yang tepat agar operasi pembagian menghasilkan nilai desimal.","C3"],
+["Operator Aritmatika","Peserta didik dapat menghitung hasil dari ekspresi operasi sisa hasil bagi (modulo) dalam C++.","C3"],
+["Penugasan Variabel","Disajikan potongan kode pembaruan nilai variabel (x = x + 3), peserta didik dapat menentukan output akhir variabel tersebut.","C3"],
+["Prioritas Operator","Disajikan ekspresi aritmatika campuran penjumlahan dan perkalian tanpa tanda kurung, peserta didik dapat menentukan hasil perhitungannya.","C3"],
+["Prioritas Operator","Disajikan ekspresi aritmatika campuran dengan tanda kurung, peserta didik dapat menentukan hasil perhitungannya.","C3"],
+["Operator Aritmatika","Disajikan potongan kode dengan ekspresi gabungan modulo, penjumlahan, dan perkalian, peserta didik dapat menghitung nilai akhir variabel.","C3"],
+["Penugasan Variabel Bertahap","Disajikan potongan kode perubahan nilai dua variabel secara berurutan, peserta didik dapat menelusuri (tracing) hasil akhir yang ditampilkan.","C4"],
+["Program Lengkap","Disajikan kode program lengkap C++ untuk menghitung luas persegi panjang, peserta didik dapat menentukan output program yang dihasilkan.","C3"]];
+// Contoh soal materi: [soal||kode, opsi[5], indeks jawaban, pembahasan]
+const M=[
+["Sebuah sawah memakai sensor kelembapan tanah yang terhubung internet. Saat tanah kering, pompa irigasi menyala otomatis. Penerapan teknologi ini disebut ...",["Smart Agriculture","E-commerce","Cloud gaming","Social engineering","Digital forensik"],0,"IoT (Internet of Things) menghubungkan sensor dan alat melalui internet. Alurnya: sensor membaca data → sistem memutuskan → pompa bekerja. Jika IoT dipakai untuk memantau dan mengendalikan lahan secara otomatis, istilahnya Smart Agriculture (pertanian cerdas)."],
+["Aplikasi agritech menghubungkan petani langsung ke konsumen akhir. Dampak ekonomi positif yang paling tepat adalah ...",["Harga pupuk otomatis turun","Rantai distribusi lebih pendek sehingga keuntungan petani naik","Petani tidak perlu menanam lagi","Semua tengkulak mendapat untung lebih besar","Hasil panen otomatis berlipat"],1,"Biasanya hasil panen melewati banyak perantara (tengkulak, agen, pedagang) dan tiap perantara mengambil untung. Platform agritech memotong rantai itu: petani menjual lebih tinggi, konsumen membeli lebih murah. Menganalisis dampak = melihat sebab → akibat ekonominya."],
+["Dampak sosial negatif yang mungkin muncul dari drone dan mesin pemanen otomatis di pedesaan adalah ...",["Hasil panen menurun","Buruh tani kehilangan pekerjaan","Petani sulit mendapat informasi cuaca","Harga gabah pasti turun","Lahan menjadi sempit"],1,"Otomatisasi menggantikan tenaga manusia. Satu mesin pemanen dapat mengerjakan tugas banyak buruh, sehingga lapangan kerja buruh tani berkurang. Teknologi membawa manfaat sekaligus risiko sosial yang perlu diantisipasi (misalnya pelatihan keterampilan baru)."],
+["Kendala utama pemerataan Smart Agriculture di daerah 3T (terdepan, terluar, tertinggal) adalah ...",["Tidak ada tanah subur","Keterbatasan infrastruktur internet dan listrik","Petani tidak suka bertani","Tanaman tidak butuh air","Terlalu banyak aplikasi tersedia"],1,"Smart Agriculture bergantung pada sensor, perangkat IoT, dan internet. Tanpa sinyal dan listrik yang stabil, perangkat tidak dapat bekerja. Karena itu pemerataan infrastruktur menjadi syarat utama."],
+["Data cuaca dan riwayat serangan hama dianalisis dengan Big Data dan Machine Learning. Manfaat bagi petani adalah ...",["Petani tidak perlu lagi merawat tanaman","Petani dapat menentukan waktu tanam dan mencegah hama lebih awal","Cuaca dapat diubah sesuka hati","Hama hilang selamanya","Harga jual selalu naik"],1,"Big Data = kumpulan data besar. Machine Learning belajar pola dari data itu untuk membuat prediksi (kapan hujan, kapan hama datang). Prediksi membantu petani mengambil keputusan lebih dulu, bukan sekadar bereaksi."],
+["Manfaat utama Rekam Medis Elektronik (RME) yang terintegrasi antar fasilitas kesehatan adalah ...",["Pasien tidak perlu diperiksa","Riwayat kesehatan pasien dapat diakses dokter di mana pun sehingga penanganan lebih cepat dan tepat","Biaya obat menjadi gratis","Dokter tidak perlu belajar lagi","Data tersimpan di kertas lebih aman"],1,"RME menyimpan riwayat penyakit, alergi, dan obat secara digital. Jika terintegrasi, pasien yang berpindah puskesmas atau rumah sakit tidak perlu mengulang pemeriksaan, dan dokter punya data lengkap untuk keputusan yang tepat."],
+["Solusi sosial Telemedisin bagi masyarakat pelosok adalah ...",["Menutup puskesmas","Warga dapat berkonsultasi dengan dokter dari jauh tanpa menempuh perjalanan panjang","Semua penyakit sembuh sendiri","Dokter wajib pindah ke desa","Obat dikirim tanpa resep"],1,"Telemedisin = layanan kesehatan jarak jauh lewat video call atau chat. Di daerah yang jauh dari rumah sakit, ini mengurangi waktu, biaya, dan hambatan akses layanan sehingga layanan kesehatan lebih merata."],
+["Data rekam medis ribuan pasien bocor dan dibaca pihak yang tidak berwenang. Aspek keamanan informasi yang terancam adalah ...",["Kerahasiaan (confidentiality)","Ketersediaan (availability)","Kecepatan","Kapasitas","Estetika"],0,"Tiga aspek keamanan informasi (CIA): Confidentiality (hanya yang berhak boleh membaca), Integrity (data tidak diubah sembarangan), Availability (data dapat diakses saat dibutuhkan). Data dibaca orang tak berwenang = kerahasiaan dilanggar."],
+["Tujuan penggunaan AI dalam menganalisis citra medis seperti X-Ray, CT-Scan, dan MRI adalah ...",["Menggantikan seluruh dokter","Membantu dokter mendeteksi kelainan lebih cepat dan akurat","Membuat gambar menjadi berwarna","Menyimpan gambar tanpa dianalisis","Menghapus data pasien"],1,"AI dilatih dengan banyak gambar medis sehingga mengenali pola kelainan (misalnya bercak pada paru). AI berperan sebagai alat bantu; keputusan akhir tetap di tangan dokter."],
+["Sistem AI diagnostik lebih akurat pada satu kelompok pasien dibanding kelompok lain. Penyebab utama Bias Algoritma ini adalah ...",["Layar monitor terlalu kecil","Data pelatihan tidak beragam atau tidak mewakili semua kelompok","Dokter terlalu banyak","Internet terlalu cepat","AI terlalu pintar"],1,"AI belajar dari data. Jika data latih didominasi satu kelompok (usia, jenis kelamin, suku), AI kurang mengenali pola kelompok lain. Prinsipnya: garbage in, bias out. Solusi: data yang beragam dan evaluasi berkala."],
+["Tantangan etis dan hukum utama saat asisten AI merekomendasikan tindakan medis darurat adalah ...",["Warna aplikasi kurang menarik","Siapa yang bertanggung jawab jika rekomendasi AI keliru dan merugikan pasien","Ukuran file aplikasi","Jumlah pengguna yang sedikit","Harga ponsel"],1,"Dalam situasi darurat, kesalahan dapat membahayakan nyawa. Pertanyaan etis-hukumnya: apakah pengembang, rumah sakit, atau dokter yang bertanggung jawab? Karena itu diperlukan regulasi dan pengawasan manusia."],
+["Dampak psikologis dan sosial negatif akibat ketergantungan berlebihan pada telemedisin adalah ...",["Tubuh menjadi lebih sehat","Cemas berlebihan, self-diagnosis, dan berkurangnya interaksi tatap muka dengan tenaga medis","Biaya berobat selalu nol","Dokter semakin banyak","Sinyal makin kuat"],1,"Terlalu bergantung pada konsultasi online dapat membuat orang menebak penyakit sendiri, cemas karena informasi daring, dan menunda pemeriksaan fisik yang sebenarnya diperlukan."],
+["Perangkat wearable seperti smartwatch mendorong perubahan paradigma kesehatan dari ...",["Pencegahan menjadi pengobatan setelah sakit","Pengobatan setelah sakit menjadi pencegahan dan pemantauan mandiri","Digital menjadi manual","Dokter menjadi pasien","Rumah sakit menjadi sekolah"],1,"Smartwatch memantau detak jantung, tidur, dan aktivitas setiap saat. Pengguna dapat mengenali gejala awal dan hidup lebih sehat sebelum sakit parah, jadi paradigmanya bergeser ke preventif dan personal."],
+["Aplikasi memindai penyakit daun padi memakai kamera smartphone. Cabang ilmu informatika yang berperan adalah ...",["Kecerdasan artifisial (computer vision)","Jaringan komputer","Sistem basis data","Keamanan siber","Rekayasa perangkat keras"],0,"Computer vision adalah bagian dari kecerdasan artifisial yang membuat komputer 'melihat' dan mengenali objek dari gambar. Aplikasi ini mengenali pola bercak pada daun lalu menyimpulkan jenis penyakitnya."],
+["IoT pertanian dan telemedisin di pedesaan paling sesuai dengan pilar SDGs ...",["SDG 2 (Tanpa Kelaparan) dan SDG 3 (Kehidupan Sehat dan Sejahtera)","SDG 7 dan SDG 14","SDG 4 dan SDG 5","SDG 13 dan SDG 16","SDG 11 dan SDG 12"],0,"IoT pertanian meningkatkan produksi pangan (SDG 2). Telemedisin memperluas layanan kesehatan (SDG 3). Cocokkan manfaat teknologi dengan tujuan SDGs-nya."],
+["Header file yang wajib disertakan agar cin dan cout dapat dipakai adalah ...",["#include <iostream>","#include <cmath>","#include <string>","#include <ctime>","#include <vector>"],0,"iostream = input-output stream. Header ini berisi definisi cin (input) dan cout (output). Tanpa baris ini, compiler tidak mengenal keduanya."],
+["Fungsi yang menjadi titik awal eksekusi program C++ adalah ...",["start()","main()","begin()","run()","program()"],1,"Komputer selalu mulai menjalankan program dari fungsi main(). Instruksi di dalam kurung kurawal main dijalankan berurutan dari atas ke bawah.||int main(){\n  cout << \"Halo\";\n  return 0;\n}"],
+["Karakter untuk mengakhiri setiap statement dalam C++ adalah ...",["Titik (.)","Titik dua (:)","Titik koma (;)","Koma (,)","Tanda seru (!)"],2,"Titik koma menandai satu instruksi selesai, seperti titik pada kalimat. Lupa memberi ; adalah error yang paling sering terjadi bagi pemula."],
+["Simbol komentar satu baris pada C++ adalah ...",["#","//","/* */","--","<!-- -->"],1,"Komentar diabaikan compiler dan hanya untuk manusia.||// ini komentar satu baris\n/* ini komentar\n   banyak baris */"],
+["Fungsi perintah using namespace std; adalah ...",["Mengakhiri program","Agar tidak perlu menulis std:: sebelum cout, cin, dan endl","Membuat variabel baru","Menghapus semua komentar","Mengubah tipe data"],1,"cout, cin, dan endl berada dalam namespace std. Tanpa baris ini kita harus menulis std::cout. Dengan baris ini cukup menulis cout."],
+["Untuk menyimpan data jumlah siswa dalam satu kelas (misalnya 36), tipe data yang paling tepat adalah ...",["char","float","int","bool","double"],2,"Jumlah siswa adalah bilangan bulat tanpa pecahan, jadi gunakan int. Pilih tipe data berdasarkan sifat datanya."],
+["Untuk menyimpan nilai rata-rata siswa, misalnya 85.75, tipe data yang sesuai adalah ...",["int","char","bool","float","long"],3,"Nilai rata-rata sering berupa pecahan, sehingga memakai float (atau double). int akan membuang bagian desimalnya."],
+["Tipe data untuk menyimpan satu karakter tunggal yang diapit tanda petik tunggal, misalnya 'A', adalah ...",["string","int","char","bool","float"],2,"char = character, menyimpan satu karakter, ditulis dengan petik tunggal: char huruf = 'A'; Teks panjang memakai petik ganda dan tipe string."],
+["Penamaan variabel yang valid dalam C++ adalah ...",["2nilai","nilai siswa","nilai-siswa","nilai_siswa","int"],3,"Aturan: boleh huruf, angka, dan underscore (_); tidak boleh diawali angka; tidak boleh ada spasi atau tanda hubung; tidak boleh memakai kata kunci seperti int."],
+["Tipe data bool dapat menyimpan nilai ...",["true dan false","0 sampai 9","A dan B","Bilangan pecahan","Teks bebas"],0,"bool (Boolean) hanya punya dua kemungkinan: true (benar) dan false (salah). Dipakai untuk kondisi ya/tidak."],
+["Operator penyisipan yang digunakan bersama cout adalah ...",["<<",">>","==","->","<="],0,"Anggap << sebagai panah yang mengarahkan data ke layar (cout). Contoh: cout << \"Halo\";"],
+["Operator ekstraksi yang digunakan bersama cin adalah ...","<<,>>,==,=>,>=".split(",").length?["<<",">>","==","=>",">="]:0,1,"Anggap >> sebagai panah dari keyboard ke variabel. Contoh: cin >> umur;"],
+["Perintah atau karakter escape yang membuat baris baru pada output adalah ...",["\\t","\\n","\\b","\\r\\t","\\0"],1,"\\n atau endl memindahkan kursor ke baris berikutnya. \\t adalah tab.||cout << \"Baris 1\\n\";\ncout << \"Baris 2\" << endl;"],
+["Perhatikan kode dan input pengguna 8 3. Nilai a dan b adalah ...||int a, b;\ncin >> a >> b;",["a=3, b=8","a=8, b=3","a=11, b=0","a=8, b=8","a=3, b=3"],1,"cin berantai mengisi variabel sesuai urutan: nilai pertama ke a, nilai kedua ke b. Spasi atau Enter memisahkan input."],
+["Output kode berikut adalah ...||int umur = 15;\ncout << \"Umur: \" << umur << \" tahun\";",["Umur: umur tahun","Umur: 15 tahun","15 tahun","Umur 15tahun","\"Umur: \" 15"],1,"Teks dalam tanda petik ganda dicetak apa adanya, sedangkan variabel dicetak nilainya (15). Hasilnya digabung berurutan."],
+["Operator aritmatika C++ untuk sisa hasil bagi (modulo) adalah ...",["/","%","*","//","mod"],1,"% memberi sisa pembagian, misalnya 7 % 2 = 1. Operator / memberi hasil bagi."],
+["Output kode berikut adalah ...||int a = 17, b = 5;\ncout << a / b;",["3.4","3","4","2","3.5"],1,"Jika kedua operand bertipe int, hasil pembagian juga int dan bagian desimalnya dibuang (17 : 5 = 3,4 menjadi 3)."],
+["Agar 17 dibagi 5 menghasilkan nilai desimal 3.4, penulisan yang tepat adalah ...",["int h = 17 / 5;","double h = 17 / 5;","double h = 17 / 5.0;","int h = 17 / 5.0;","char h = 17 / 5;"],2,"Salah satu bilangan harus desimal (5.0) agar pembagian tidak dipotong, dan penampungnya harus tipe desimal (double). double h = 17 / 5; tetap menghasilkan 3 karena pembagian int dihitung lebih dulu."],
+["Hasil dari 23 % 6 adalah ...",["3","4","5","6","0"],2,"23 = 6 x 3 + 5, jadi sisanya 5. Cari kelipatan terbesar dari 6 yang tidak melebihi 23 (yaitu 18), lalu hitung 23 - 18 = 5."],
+["Output kode berikut adalah ...||int x = 5;\nx = x + 3;\ncout << x;",["5","3","8","53","x"],2,"Tanda = berarti 'isi dengan', bukan 'sama dengan'. Hitung sisi kanan dulu (5 + 3 = 8), lalu simpan ke x. Nilai lama 5 tertimpa."],
+["Hasil dari 4 + 3 * 5 adalah ...",["35","19","27","15","12"],1,"Perkalian dan pembagian lebih dulu daripada penjumlahan dan pengurangan: 3 * 5 = 15, lalu 4 + 15 = 19."],
+["Hasil dari (4 + 3) * 5 adalah ...",["19","35","23","27","12"],1,"Tanda kurung punya prioritas tertinggi: (4 + 3) = 7, lalu 7 * 5 = 35. Bandingkan dengan soal sebelumnya!"],
+["Nilai a setelah kode berikut dijalankan adalah ...||int a = 17 % 5 + 3 * 4;",["14","24","15","20","12"],0,"Urutan: 17 % 5 = 2 dan 3 * 4 = 12 (modulo dan perkalian sama-sama prioritas tinggi), lalu 2 + 12 = 14."],
+["Output kode berikut adalah ...||int a = 2, b = 3;\na = a + b;\nb = a * b;\ncout << a << \" \" << b;",["5 15","2 6","5 6","5 10","2 3"],0,"Tracing langkah demi langkah. Awal: a=2, b=3. Baris 1: a = 2+3 = 5. Baris 2: b = a*b = 5*3 = 15 (a sudah 5!). Cetak: 5 15."],
+["Output program berikut adalah ...||#include <iostream>\nusing namespace std;\nint main(){\n  int p = 8, l = 5;\n  int luas = p * l;\n  cout << \"Luas = \" << luas;\n  return 0;\n}",["Luas = 13","Luas = 40","Luas = luas","40","Luas = 85"],1,"Luas persegi panjang = panjang x lebar = 8 x 5 = 40. Teks \"Luas = \" dicetak apa adanya, lalu nilai variabel luas."]
+];
+// Soal latihan (berbeda dari contoh)
+const P=[
+["Petani memasang sensor pH tanah dan suhu yang mengirim data ke ponsel melalui internet. Penerapan ini termasuk ...",["Game online","Smart Agriculture","Keamanan siber","Desain grafis","Pemrograman web"],1,"Sensor + internet untuk memantau lahan = IoT di pertanian cerdas."],
+["Petani menjual panen lewat aplikasi langsung ke restoran. Dampak ekonomi positifnya adalah ...",["Harga jual petani lebih baik karena perantara berkurang","Pajak dihapus","Hasil panen bertambah otomatis","Restoran tidak perlu membayar","Petani kehilangan pembeli"],0,"Rantai distribusi yang pendek memberi margin lebih besar bagi petani."],
+["Traktor tanpa awak dan drone penyemprot digunakan luas di desa. Dampak sosial negatif potensialnya adalah ...",["Tanah menjadi keras","Pekerjaan buruh tani musiman berkurang","Pupuk menghilang","Matahari terhalang","Sinyal selalu kuat"],1,"Otomatisasi menggantikan tenaga manusia sehingga lapangan kerja berkurang."],
+["Kendala utama petani daerah 3T memakai aplikasi pertanian digital adalah ...",["Terlalu banyak sinyal","Tanaman tidak tumbuh","Keterbatasan jaringan internet dan listrik","Aplikasi terlalu murah","Cuaca terlalu stabil"],2,"Perangkat digital membutuhkan internet dan listrik yang belum merata di daerah 3T."],
+["Model Machine Learning memprediksi serangan hama pekan depan. Manfaatnya bagi petani adalah ...",["Hama pasti hilang","Petani bisa melakukan pencegahan sebelum hama menyebar","Tidak perlu menanam","Harga pupuk nol","Cuaca berubah"],1,"Prediksi dari data memungkinkan tindakan lebih awal."],
+["Dokter IGD dapat melihat riwayat alergi pasien yang berobat di RS lain. Ini manfaat ...",["Rekam Medis Elektronik terintegrasi","Game online","Cloud gaming","Mesin ATM","Surel spam"],0,"RME terintegrasi membagikan data pasien antar fasilitas kesehatan."],
+["Warga desa terpencil berkonsultasi dengan dokter lewat video call. Solusi sosial telemedisin ini adalah ...",["Dokter harus tinggal di desa","Akses layanan kesehatan tanpa perjalanan jauh","Obat menjadi gratis","Puskesmas ditutup","Pasien tidak lagi sakit"],1,"Telemedisin menghapus hambatan jarak."],
+["Data pasien rumah sakit bocor dan dibaca orang yang tidak berhak. Aspek keamanan yang terancam adalah ...",["Ketersediaan","Integritas","Kerahasiaan","Kecepatan","Kapasitas"],2,"Dibaca pihak tak berwenang berarti kerahasiaan (confidentiality) dilanggar."],
+["Tujuan AI membaca hasil CT-Scan adalah ...",["Mewarnai gambar","Membantu dokter menemukan kelainan lebih cepat","Menghapus riwayat pasien","Menggantikan pasien","Mempercepat internet"],1,"AI adalah alat bantu deteksi, keputusan tetap di dokter."],
+["AI diagnostik akurat pada satu kelompok tetapi kurang akurat pada kelompok lain. Penyebab yang paling mungkin adalah ...",["Data pelatihan didominasi satu kelompok","Layar kecil","Terlalu banyak dokter","Listrik padam","Pasien terlalu muda"],0,"Data latih yang tidak mewakili semua kelompok menimbulkan bias algoritma."],
+["Asisten AI memberi saran tindakan darurat yang salah. Tantangan hukum utamanya adalah ...",["Warna aplikasi","Menentukan pihak yang bertanggung jawab","Ukuran layar","Jumlah fitur","Harga langganan"],1,"Pertanggungjawaban atas kesalahan AI belum selalu jelas, sehingga diperlukan regulasi."],
+["Ketergantungan berlebihan pada telemedisin dapat menimbulkan ...",["Kebiasaan self-diagnosis dan kecemasan karena jarang bertemu langsung tenaga medis","Tubuh selalu bugar","Biaya selalu nol","Dokter menjadi tidak perlu","Sinyal menguat"],0,"Konsultasi daring berlebihan dapat memicu cemas dan menunda pemeriksaan fisik."],
+["Smartwatch yang memantau detak jantung mendorong paradigma kesehatan menuju ...",["Mengobati setelah sakit parah","Pencegahan dan pemantauan kesehatan mandiri","Menghindari teknologi","Perawatan hanya di rumah sakit","Menghapus data"],1,"Pemantauan terus-menerus mengubah fokus dari pengobatan ke pencegahan."],
+["Aplikasi mengenali penyakit daun cabai dari foto ponsel. Cabang informatika yang berperan adalah ...",["Jaringan komputer","Sistem basis data","Keamanan siber","Kecerdasan artifisial (computer vision)","Pemrograman web"],3,"Mengenali objek dari gambar adalah computer vision di bidang kecerdasan artifisial."],
+["Drone pemantau ladang dan klinik telemedisin di desa mendukung SDGs nomor ...",["1 dan 4","2 dan 3","5 dan 7","8 dan 9","13 dan 14"],1,"SDG 2 Tanpa Kelaparan (pangan) dan SDG 3 Kehidupan Sehat dan Sejahtera (kesehatan)."],
+["Agar cout dikenali, program harus menyertakan ...",["#include <math.h>","#include <conio.h>","#include <iostream>","#include <cmath>","#include <ctime>"],2,"cout dan cin didefinisikan dalam header iostream."],
+["Program C++ mulai dijalankan dari ...",["Baris pertama file","Fungsi main()","Fungsi terakhir","Komentar","Header file"],1,"Eksekusi selalu dimulai dari fungsi main()."],
+["Setiap statement C++ diakhiri dengan ...",["Titik dua","Koma","Titik","Titik koma","Garis miring"],3,"Titik koma (;) menandai akhir instruksi."],
+["Komentar satu baris di C++ ditulis dengan ...",["#","--","/* */","<!-- -->","//"],4,"// membuat komentar sampai akhir baris; /* */ untuk banyak baris."],
+["Jika baris using namespace std; dihapus, pencetakan teks harus ditulis ...",["cout << \"Hi\";","std::cout << \"Hi\";","print(\"Hi\");","echo \"Hi\";","write \"Hi\";"],1,"Tanpa using namespace std; kita harus menulis awalan std:: sebelum cout."],
+["Untuk menyimpan jumlah buku di rak (misalnya 120), tipe data yang tepat adalah ...",["float","char","bool","int","string"],3,"Jumlah buku adalah bilangan bulat, jadi int."],
+["Untuk menyimpan suhu tubuh 36.5, tipe data yang sesuai adalah ...",["int","float","char","bool","string"],1,"Suhu 36.5 memiliki desimal, gunakan float atau double."],
+["Tipe data untuk menyimpan satu huruf seperti 'B' adalah ...",["char","int","float","bool","void"],0,"char menyimpan satu karakter dengan petik tunggal."],
+["Nama variabel yang valid adalah ...",["9kali","luas persegi","float","harga-barang","total_harga"],4,"Tidak boleh diawali angka, mengandung spasi atau tanda hubung, ataupun memakai kata kunci."],
+["Variabel bertipe bool dapat bernilai ...",["1 sampai 100","true atau false","A sampai Z","Pecahan saja","Teks apa saja"],1,"bool hanya memiliki dua nilai: true dan false."],
+["Operator yang dipakai bersama cout untuk mengirim data ke layar adalah ...",[">>","==","<<","->","=>"],2,"<< adalah operator penyisipan (insertion)."],
+["Operator yang dipakai bersama cin untuk membaca data adalah ...","<<,==,>>".length?["<<","==","->","=>",">>"]:0,4,"Operator >> adalah operator ekstraksi (extraction) untuk membaca input."],
+["Agar B tampil di baris baru pada kode berikut, bagian kosong diisi ...||cout << \"A\" << ___ << \"B\";",["\\t","endl","\"\\\\\"","\"/n\"","\";\""],1,"endl (atau \"\\n\") memindahkan output ke baris baru."],
+["Jika pengguna mengetik 3 8 6, nilai q adalah ...||int p, q, r;\ncin >> p >> q >> r;",["3","6","8","17","0"],2,"Urutan input: p=3, q=8, r=6."],
+["Output kode berikut adalah ...||int t = 7;\ncout << \"Total: \" << t << \" item\";",["Total: t item","Total: 7 item","7 item","Total 7item","Total: 7"],1,"Teks dicetak apa adanya, variabel t dicetak nilainya 7."],
+["Operator modulo di C++ adalah ...",["%","/","&","mod","\\"],0,"% menghasilkan sisa pembagian."],
+["Output kode berikut adalah ...||int a = 19, b = 4;\ncout << a / b;",["4.75","5","3","4","4.0"],3,"Pembagian int dengan int menghasilkan int: 19 : 4 = 4,75 dipotong menjadi 4."],
+["Agar total (7) dibagi n (2) menghasilkan 3.5, kode yang tepat adalah ...",["int h = total / n;","double h = total / n;","double h = (double) total / n;","int h = (double) total / n;","float h = total / n;"],2,"Salah satu operand diubah ke double dan penampungnya double. Opsi lain memotong hasil menjadi 3."],
+["Hasil dari 29 % 7 adalah ...",["1","2","4","7","0"],0,"29 = 7 x 4 + 1, sisanya 1."],
+["Output kode berikut adalah ...||int x = 10;\nx = x + 3;\ncout << x;",["10","3","103","13","x"],3,"Hitung 10 + 3 = 13 lalu simpan kembali ke x."],
+["Hasil dari 2 + 6 * 3 adalah ...",["24","20","18","11","36"],1,"Perkalian lebih dulu: 6 * 3 = 18, lalu 2 + 18 = 20."],
+["Hasil dari (2 + 6) * 3 adalah ...",["20","24","18","12","14"],1,"Tanda kurung lebih dulu: 8 * 3 = 24."],
+["Nilai a setelah kode berikut dijalankan adalah ...||int a = 20 % 6 + 2 * 5;",["12","20","15","16","10"],0,"20 % 6 = 2, 2 * 5 = 10, lalu 2 + 10 = 12."],
+["Output kode berikut adalah ...||int a = 4, b = 6;\na = a + b;\nb = a - b;\ncout << a << \" \" << b;",["4 6","10 4","10 6","4 10","10 10"],1,"a = 4+6 = 10; b = a-b = 10-6 = 4. Cetak: 10 4."],
+["Output program berikut adalah ...||#include <iostream>\nusing namespace std;\nint main(){\n  int p = 9, l = 4;\n  cout << \"Luas: \" << p * l;\n  return 0;\n}",["Luas: 13","Luas: 94","Luas: 36","36","Luas: p * l"],2,"p * l = 9 x 4 = 36, dicetak setelah teks \"Luas: \"."]
+];
+// Soal uraian: [materi, indikator, level, pertanyaan, jawaban, pembahasan]
+const U=[
+["Pertanian Cerdas","Peserta didik dapat menyebutkan dan menjelaskan minimal 2 tantangan sosial atau ekonomi yang dihadapi petani kecil di Indonesia dalam mengadopsi teknologi pertanian.","C2","Sebutkan dan jelaskan minimal 2 tantangan yang dihadapi petani kecil di Indonesia dalam mengadopsi teknologi pertanian!","1) Biaya tinggi: sensor, drone, dan aplikasi mahal sedangkan modal dan penghasilan petani kecil terbatas.\n2) Literasi digital rendah: banyak petani belum terbiasa memakai ponsel atau aplikasi sehingga perlu pelatihan.\n3) Infrastruktur terbatas: sinyal internet dan listrik belum merata di pedesaan.","Tantangan dapat dikelompokkan menjadi ekonomi (biaya, modal), sosial (kemampuan, kebiasaan turun-temurun), dan infrastruktur. Jawaban lengkap berisi sebutan tantangan dan penjelasan alasannya (minimal 2). Solusi: subsidi, koperasi tani, pelatihan, dan pemerataan jaringan."],
+["Teknologi Kesehatan","Peserta didik dapat menyebutkan dan menjelaskan minimal 2 dampak positif penerapan teknologi informatika di bidang kesehatan di Indonesia.","C2","Sebutkan dan jelaskan minimal 2 dampak positif penerapan teknologi informatika di bidang kesehatan di Indonesia!","1) Akses layanan lebih merata: telemedisin memungkinkan warga daerah terpencil berkonsultasi dengan dokter tanpa perjalanan jauh.\n2) Penanganan lebih cepat dan akurat: rekam medis elektronik membuat riwayat pasien mudah diakses antar fasilitas kesehatan.\n3) Pencegahan penyakit: wearable memantau kondisi tubuh sehingga gejala awal cepat diketahui.","Dampak positif berkaitan dengan akses, kecepatan, ketepatan, dan pencegahan. Setiap dampak harus disebut dan dijelaskan dengan contoh teknologinya (telemedisin, RME, wearable, AI citra medis)."],
+["Tipe Data","Peserta didik dapat menjelaskan 6 tipe data yang terdapat pada bahasa pemrograman C++ beserta contoh penggunaannya.","C2","Jelaskan 6 tipe data pada C++ beserta contoh penggunaannya!","1) int: bilangan bulat. int umur = 16;\n2) float: bilangan desimal presisi tunggal. float tinggi = 1.65;\n3) double: bilangan desimal presisi ganda (lebih teliti). double pi = 3.14159;\n4) char: satu karakter, memakai petik tunggal. char nilai = 'A';\n5) bool: nilai logika true atau false. bool lulus = true;\n6) string: teks, memakai petik ganda (perlu #include <string>). string nama = \"Budi\";","Pilih tipe data sesuai sifat data: bulat (int), desimal (float/double), satu huruf (char), benar/salah (bool), dan teks (string). Tipe data menentukan jenis nilai dan ukuran memori yang dipakai. Beberapa buku menambahkan long atau short; jawaban dengan 6 tipe di atas sudah tepat."],
+["Operator Aritmatika","Peserta didik dapat menyebutkan dan menjelaskan tanda operator aritmatika yang digunakan dalam bahasa pemrograman C++.","C2","Sebutkan dan jelaskan tanda operator aritmatika dalam C++ beserta contohnya!","+ penjumlahan: 7 + 2 = 9\n- pengurangan: 7 - 2 = 5\n* perkalian: 7 * 2 = 14\n/ pembagian (hasil bagi): 7 / 2 = 3 (jika keduanya int)\n% modulo (sisa hasil bagi): 7 % 2 = 1","Ada lima operator dasar. Ingat: / pada dua int membuang desimal, dan % hanya untuk bilangan bulat. Prioritas: * / % lebih dulu daripada + -, kecuali ada tanda kurung."],
+["Penelusuran Kode (Code Tracing)","Disajikan skrip lengkap program C++ yang melibatkan operasi modulo, aritmatika campuran, dan perubahan nilai variabel secara bertahap, peserta didik dapat menelusuri serta menuliskan output akhir yang tampil di monitor.","C4","Tuliskan output program berikut!||#include <iostream>\nusing namespace std;\nint main(){\n  int a = 17, b = 5;\n  int c = a % b + a / b * 2;\n  a = a - c;\n  b = b + a % 4;\n  cout << \"c=\" << c << endl;\n  cout << \"a=\" << a << \" b=\" << b;\n  return 0;\n}","Output:\nc=8\na=9 b=6\n\nLangkah: a % b = 17 % 5 = 2; a / b = 3, lalu 3 * 2 = 6; c = 2 + 6 = 8. a = 17 - 8 = 9. b = 5 + (9 % 4) = 5 + 1 = 6.","Teknik tracing: buat tabel nilai variabel setiap baris. Ingat urutan operator (* / % dulu, lalu + -), pembagian int dipotong, dan nilai variabel terbaru dipakai baris berikutnya. endl membuat output pindah baris."]
+];
+// ---- render helpers
+function qHtml(q){const p=q.split("||");return '<div class="q">'+E(p[0])+'</div>'+(p[1]?'<pre>'+E(p[1])+'</pre>':'')}
+// Materi
+function sec(t){return '<h2>'+t+'</h2>'}
+let h=sec("Bagian 1 – Dampak Sosial Informatika (PG 1–15)");
+M.forEach((m,i)=>{
+ if(i==15)h+=sec("Bagian 2 – Algoritma dan Pemrograman C++ (PG 16–40)");
+ const k=K[i],q=m[0];
+ // pembahasan dengan kode setelah "||"
+ const pm=m[3].split("||");
+ h+='<details><summary><span class="n">PG '+(i+1)+'</span>'+E(k[0])+'<span class="lv">'+k[2]+'</span></summary><div class="b"><div class="ind"><b>Indikator:</b> '+E(k[1])+'</div>'+qHtml(q)+
+ m[1].map((o,j)=>'<div class="o'+(j==m[2]?' ok':'')+'"><i>'+L[j]+'.</i>'+E(o)+'</div>').join("")+
+ '<div class="ans">Jawaban: '+L[m[2]]+'. '+E(m[1][m[2]])+'</div><h3>Pembahasan</h3><div>'+E(pm[0])+'</div>'+(pm[1]?'<pre>'+E(pm[1])+'</pre>':'')+'</div></details>';
+});
+h+=sec("Bagian 3 – Soal Uraian (1–5)");
+U.forEach((u,i)=>{
+ h+='<details><summary><span class="n">Uraian '+(i+1)+'</span>'+E(u[0])+'<span class="lv">'+u[2]+'</span></summary><div class="b"><div class="ind"><b>Indikator:</b> '+E(u[1])+'</div><h3>Pertanyaan</h3>'+qHtml(u[3])+'<h3>Contoh Jawaban</h3><pre style="white-space:pre-wrap;color:var(--tx)">'+E(u[4])+'</pre><h3>Pembahasan</h3><div>'+E(u[5])+'</div></div></details>';
+});
+document.getElementById("v1").innerHTML=h;
+// Latihan
+const v2=document.getElementById("v2");let cur=0,ans=Array(40).fill(-1),done=false;
+function draw(){
+ if(done)return result();
+ const p=P[cur],k=K[cur],n=ans.filter(a=>a>=0).length;
+ v2.innerHTML='<div class="card"><div class="st"><span>Soal '+(cur+1)+' / 40</span><span>Terjawab '+n+' / 40</span></div><div class="bar"><div style="width:'+(n/40*100)+'%"></div></div><div class="ind">'+E(k[0])+' · '+k[2]+'</div>'+qHtml(p[0])+
+ p[1].map((o,j)=>'<button class="o'+(ans[cur]==j?' sel':'')+'" data-j="'+j+'"><i>'+L[j]+'.</i>'+E(o)+'</button>').join("")+
+ '<div class="row"><button class="btn g" id="pv"'+(cur==0?' disabled':'')+'>Sebelumnya</button>'+(cur<39?'<button class="btn" id="nx">Selanjutnya</button>':'<button class="btn" id="fin">Selesaikan Latihan</button>')+'</div>'+(cur<39?'<div class="row"><button class="btn g" id="fin2">Selesaikan Latihan</button></div>':'')+'</div>';
+ v2.querySelectorAll("button[data-j]").forEach(b=>b.onclick=()=>{ans[cur]=+b.dataset.j;draw()});
+ const g=id=>document.getElementById(id);
+ g("pv").onclick=()=>{cur--;draw()};
+ if(g("nx"))g("nx").onclick=()=>{cur++;draw()};
+ const f=()=>{const left=ans.filter(a=>a<0).length;if(left&&!confirm(left+" soal belum dijawab. Selesaikan latihan?"))return;done=true;draw()};
+ if(g("fin"))g("fin").onclick=f;if(g("fin2"))g("fin2").onclick=f;
+ window.scrollTo(0,0)
+}
+function result(){
+ const b=P.filter((p,i)=>ans[i]==p[2]).length,s=Math.round(b/40*100);
+ v2.innerHTML='<div class="card"><div>Nilai Akhir</div><div class="sc">'+s+'</div><div class="st"><span>Benar: '+b+'</span><span>Salah: '+(40-b)+'</span></div><div class="row"><button class="btn" id="re">Ulangi Latihan</button></div></div>'+
+ P.map((p,i)=>'<div class="card"><div class="ind"><b>Soal '+(i+1)+'</b> · '+E(K[i][0])+' · '+K[i][2]+'</div>'+qHtml(p[0])+
+ p[1].map((o,j)=>'<div class="o'+(j==p[2]?' ok':(j==ans[i]?' no':''))+'"><i>'+L[j]+'.</i>'+E(o)+(j==p[2]?' ✔ Kunci':'')+(j==ans[i]?' ← Jawabanmu':'')+'</div>').join("")+
+ (ans[i]<0?'<div class="ind">Tidak dijawab</div>':'')+'<div class="ans">Kunci: '+L[p[2]]+'</div><div>'+E(p[3])+'</div></div>').join("");
+ document.getElementById("re").onclick=()=>{ans.fill(-1);cur=0;done=false;draw()};
+ window.scrollTo(0,0)
+}
+function tab(n){["1","2"].forEach(x=>{document.getElementById("v"+x).classList.toggle("hide",x!=n);document.getElementById("t"+x).classList.toggle("on",x==n)});if(n=="2")draw()}
+document.getElementById("t1").onclick=()=>tab("1");document.getElementById("t2").onclick=()=>tab("2");
+</script></body></html>
